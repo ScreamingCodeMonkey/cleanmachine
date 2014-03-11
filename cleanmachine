@@ -142,3 +142,9 @@ if ruby --version | grep -q 2.1.1; then
 	rvm use 2.1.1 --default
 fi
 
+# Python and pip
+################
+
+command_exists "pip" || sudo easy_install pip
+
+command_exists "http" || pip install httpie
