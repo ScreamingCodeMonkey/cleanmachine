@@ -45,7 +45,10 @@ Enjoy!
 	16. The Unarchiver (decompresses any archive you can throw at it)
 	17. VLC (plays any video file you can throw at it)
 6. Uses a decent gitconfig file as a starting config
-7. Installs RVM and the latest version of Ruby
+7. Installs RVM and the latest version of Ruby, plus the following Gems:
+	1. Compass
+	2. Jekyll + Kramdown
+	3. Capistrano
 8. Installs Pip and HTTPie, a great HTTP debugging tool
 9. Takes the huge amount of default crapware (Launchpad? Photo Booth?!)
    out of the dock, and adds Chrome, Sublime, and iTerm
