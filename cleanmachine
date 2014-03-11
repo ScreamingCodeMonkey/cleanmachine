@@ -148,4 +148,4 @@ fi
 
 command_exists "pip" || sudo easy_install pip
 
-command_exists "http" || pip install httpie
+command_exists "http" || sudo pip install httpie
