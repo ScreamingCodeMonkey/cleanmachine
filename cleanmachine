@@ -138,7 +138,7 @@ if ! command_exists "rvm"; then
 	exit 1
 fi
 
-if ruby --version | grep -q 2.1.1; then
+if ! ruby --version | grep -q 2.1.1; then
 	rvm autolibs homebrew
 
 	rvm install 2.1.1
