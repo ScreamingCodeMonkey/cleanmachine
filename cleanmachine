@@ -175,16 +175,9 @@ command_exists "http" || sudo pip install httpie
 curl https://raw.github.com/kcrawford/dockutil/master/scripts/dockutil > ~/bin/dockutil && chmod +x ~/bin/dockutil
 
 # Remove the default apps
-~/bin/dockutil --remove 'Launchpad' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Contacts' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Calendar' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Notes' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Maps' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Messages' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'FaceTime' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'Photo Booth' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'iBooks' --no-restart >/dev/null 2>&1
-~/bin/dockutil --remove 'App Store' --no-restart >/dev/null 2>&1
+for icon in Launchpad Contacts Calendar Notes Maps Messages FaceTime 'Photo Booth' iBooks 'App Store' do
+	~/bin/dockutil --remove "$icon" --no-restart >/dev/null 2>&1
+done
 
 # Add some sensible defaults
 dockutil --add '/Applications/Google Chrome.app' --position 1 --no-restart >/dev/null 2>&1
