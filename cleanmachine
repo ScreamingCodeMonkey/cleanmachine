@@ -141,6 +141,8 @@ if ! command_exists "rvm"; then
 fi
 
 if ! ruby --version | grep -q 2.1.1; then
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
 	rvm autolibs homebrew
 
 	rvm install 2.1.1
