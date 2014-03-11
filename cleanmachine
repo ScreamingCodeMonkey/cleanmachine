@@ -20,6 +20,8 @@ function cask_installed() {
 echo "Getting sudo privileges. Enter your account password if prompted"
 sudo /bin/date > /dev/null 2>&1
 
+sudo chown -R `whoami` /usr/local
+
 # Configure curl to always show progress bars
 [[ -e ~/.curlrc ]] || echo progress-bar >> ~/.curlrc
 
