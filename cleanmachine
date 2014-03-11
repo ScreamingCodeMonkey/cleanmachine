@@ -12,6 +12,10 @@ function cask_installed() {
 	brew cask list | grep -q $1
 }
 
+function gem_installed() {
+	gem list -i $1 >/dev/null 2>&1
+}
+
 # Configuration
 ###############
 
@@ -148,6 +152,15 @@ if ! ruby --version | grep -q 2.1.1; then
 	rvm install 2.1.1
 	rvm use 2.1.1 --default
 fi
+
+# Disable the installation of documentation along with Ruby gems, since
+# it slows things down
+[[ -f ~/.gemrc ]] || echo "gem: --no-document" > ~/.gemrc
+
+gem_installed "compass"    || gem install compass
+gem_installed "jekyll"     || gem install jekyll
+gem_installed "kramdown"   || gem install kramdown
+gem_installed "capistrano" || gem install -v 2.15.5 capistrano
 
 # Python and pip
 ################
