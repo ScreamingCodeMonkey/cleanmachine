@@ -17,6 +17,37 @@ a bit of effort it could be a bit more configurable.
 
 Enjoy!
 
+## Things it does
+
+1. Installs the XCode command-line tools
+2. Changes the default shell to zsh
+3. Installs oh-my-zsh
+4. Installs homebrew and the following packages:
+	1. ack
+	2. git
+	3. moreutils
+5. Installs homebrew casks, and installs the following applications:
+	1. Adium (IM client)
+	2. Airfoil (for playing music on an Airport Express)
+	3. Alfred (launcher app)
+	4. Charles (excellent debugging HTTP proxy)
+	5. Dropbox (file syncing)
+	6. Firefox (web browser)
+	7. Google Chrome (web browser)
+	8. iTerm2 (much better than Terminal.app)
+	9. MAMP Pro (Apache, mySQL, PHP)
+	10. Opera (web browser)
+	11. 1Password (password storage and syncing)
+	12. Sequel Pro (amazing GUI mySQL client)
+	13. Skype (chat and IM)
+	14. Spotify (music)
+	15. Sublime Text (the standard text editor for cowards)
+	16. The Unarchiver (decompresses any archive you can throw at it)
+	17. VLC (plays any video file you can throw at it)
+6. Uses a decent gitconfig file as a starting config
+7. Installs RVM and the latest version of Ruby
+8. Installs Pip and HTTPie, a great HTTP debugging tool
+
 ## Usage
 
 Download the script to the machine and run it; alternatively, you can
