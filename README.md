@@ -47,6 +47,8 @@ Enjoy!
 6. Uses a decent gitconfig file as a starting config
 7. Installs RVM and the latest version of Ruby
 8. Installs Pip and HTTPie, a great HTTP debugging tool
+9. Takes the huge amount of default crapware (Launchpad? Photo Booth?!)
+   out of the dock, and adds Chrome, Sublime, and iTerm
 
 ## Usage
 
