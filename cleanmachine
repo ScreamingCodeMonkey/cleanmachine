@@ -119,7 +119,6 @@ if ! grep -q email ~/.gitconfig; then
 	echo "Setting git config to use $fullname <$email>."
 	git config --global user.name "$fullname"
 	git config --global user.email "$email"
-	exit
 fi
 
 # RVM, Ruby, and Gems
