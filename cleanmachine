@@ -1,0 +1,144 @@
+#!/bin/zsh
+
+function command_exists() {
+	type $1 >/dev/null 2>&1
+}
+
+function formula_installed() {
+	brew list -1 | grep -q $1
+}
+
+function cask_installed() {
+	brew cask list | grep -q $1
+}
+
+# Configuration
+###############
+
+# Run a noop command as sudo, so that the rest of the script runs during
+# the sudo grace period
+echo "Getting sudo privileges. Enter your account password if prompted"
+sudo /bin/date > /dev/null 2>&1
+
+# Configure curl to always show progress bars
+[[ -e ~/.curlrc ]] || echo progress-bar >> ~/.curlrc
+
+command_exists "clang" || { echo "Installing the XCode command line tools"; xcode-select --install }
+
+# Shell
+#######
+
+if [[ $SHELL:t != "zsh" ]]; then
+	echo "\n"
+
+	echo "Changing shell to zsh. Enter your account password if prompted"
+	chsh -s /bin/zsh
+fi
+
+if [[ $SHELL:t != "zsh" ]]; then
+	echo >&2 "Your shell doesn't seem to be ZSH. If you've just run this script for the first time, try opening a new terminal window and running the script again."
+	exit 1
+fi
+
+# Homebrew
+##########
+
+
+if ! command_exists "brew"; then
+	echo "\n"
+	echo "Installing Homebrew"
+
+	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+
+if ! command_exists "brew"; then
+	echo >&2 "I can't seem to find the brew command. If you've just installed it, try opening a new terminal window and running the script again; otherwise, check your \$PATH."
+	exit 1
+fi
+
+for formula in ack git; do
+	if ! formula_installed $formula; then
+		brew install $formula
+	fi
+done
+
+# Homebrew Casks
+################
+
+# Allow the use of Homebrew Casks:
+# https://github.com/phinze/homebrew-cask
+brew tap phinze/cask > /dev/null 2>&1
+formula_installed brew-cask || brew install brew-cask
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+for cask in adium airfoil alfred charles firefox google-chrome iterm2 mamp opera onepassword sequel-pro skype spotify sublime-text the-unarchiver vlc; do
+	if ! cask_installed $cask; then
+		brew cask install $cask
+	fi
+done
+
+# oh-my-zsh
+###########
+
+if [[ ! -e ~/.oh-my-zsh ]]; then
+	echo "\n"
+	echo "Installing oh-my-zsh"
+
+	git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+	echo "I've installed oh-my-zsh. You should open a new terminal window and run this script again."
+	exit
+fi
+
+# Git setup
+###########
+
+if [[ ! -e ~/.gitconfig ]]; then
+	echo "\n"
+	echo "Fetching a base .gitconfig file"
+
+	# A sensible default git config, minus personal data
+	curl https://raw.github.com/robmiller/dotfiles/master/gitconfig | tail -n+4 >> ~/.gitconfig
+fi
+
+if ! grep -q email ~/.gitconfig; then
+	echo "\n"
+	echo "Configuring personal information for Git"
+
+	# Prompt the user for their personal information, to use in the
+	# .gitconfig file
+	fullname=
+	email=
+	vared -p "What's your full name? " fullname
+	vared -p "What's your email address? " email
+
+	echo "Setting git config to use $fullname <$email>."
+	git config --global user.name "$fullname"
+	git config --global user.email "$email"
+	exit
+fi
+
+# RVM, Ruby, and Gems
+#####################
+
+if ! command_exists "rvm"; then
+	echo "\n"
+	echo "Installing RVM, the Ruby Version Manager"
+
+	\curl -sSL https://get.rvm.io | bash
+fi
+
+if ! command_exists "rvm"; then
+	echo >&2 "I can't find RVM. Try opening a new terminal window and running this script again."
+	exit 1
+fi
+
+if ruby --version | grep -q 2.1.1; then
+	rvm autolibs homebrew
+
+	rvm install 2.1.1
+	rvm use 2.1.1 --default
+fi
+
