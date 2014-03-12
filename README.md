@@ -23,9 +23,14 @@ Enjoy!
 2. Changes the default shell to zsh
 3. Installs oh-my-zsh
 4. Installs homebrew and the following packages:
-	1. ack
-	2. git
-	3. moreutils
+	1. ack (file searching)
+	2. git (version control)
+	3. ImageMagick (image manipulation from the command line)
+	4. moreutils (useful "missing" Unix utils)
+	5. ncdu (ncurses "where's my diskspace gone" utility)
+	6. node (mainly for npm)
+	7. sqlite (no-overhead SQL databases)
+	8. vim (a text editor for champions)
 5. Installs homebrew casks, and installs the following applications:
 	1. Adium (IM client)
 	2. Airfoil (for playing music on an Airport Express)

@@ -64,7 +64,7 @@ if ! command_exists "brew"; then
 	exit 1
 fi
 
-for formula in ack git moreutils; do
+for formula in ack git imagemagick moreutils ncdu node sqlite vim; do
 	if ! formula_installed $formula; then
 		brew install $formula
 	fi
