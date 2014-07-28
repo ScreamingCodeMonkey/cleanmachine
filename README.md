@@ -63,7 +63,7 @@ Enjoy!
 Download the script to the machine and run it; alternatively, you can
 run directly from the web:
 
-	curl https://raw.github.com/bigfishdesign/cleanmachine/master/cleanmachine | zsh
+	curl https://raw.githubusercontent.com/bigfishdesign/cleanmachine/master/cleanmachine | zsh
 
 It's been tested on OS X 10.9 "Mavericks", but there shouldn't be any
 reason why it wouldn't work on earlier versions; the only requirement is

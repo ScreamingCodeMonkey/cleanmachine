@@ -56,7 +56,7 @@ if ! command_exists "brew"; then
 	echo "\n"
 	echo "Installing Homebrew"
 
-	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
 fi
 
 if ! command_exists "brew"; then
@@ -110,7 +110,7 @@ if [[ ! -e ~/.gitconfig ]]; then
 	echo "Fetching a base .gitconfig file"
 
 	# A sensible default git config, minus personal data
-	curl https://raw.github.com/robmiller/dotfiles/master/gitconfig | tail -n+4 >> ~/.gitconfig
+	curl https://raw.githubusercontent.com/robmiller/dotfiles/master/gitconfig | tail -n+4 >> ~/.gitconfig
 fi
 
 if ! grep -q email ~/.gitconfig; then
@@ -172,7 +172,7 @@ command_exists "http" || sudo pip install httpie
 # Dock
 ######
 
-curl https://raw.github.com/kcrawford/dockutil/master/scripts/dockutil > ~/bin/dockutil && chmod +x ~/bin/dockutil
+curl https://raw.githubusercontent.com/kcrawford/dockutil/master/scripts/dockutil > ~/bin/dockutil && chmod +x ~/bin/dockutil
 
 # Remove the default apps
 for icon in Launchpad Contacts Calendar Notes Maps Messages FaceTime 'Photo Booth' iBooks 'App Store'; do
