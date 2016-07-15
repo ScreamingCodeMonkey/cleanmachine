@@ -56,7 +56,7 @@ if ! command_exists "brew"; then
 	echo "\n"
 	echo "Installing Homebrew"
 
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 if ! command_exists "brew"; then
