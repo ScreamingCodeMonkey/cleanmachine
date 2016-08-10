@@ -181,5 +181,5 @@ done
 
 # Add some sensible defaults
 ~/bin/dockutil --add '/Applications/Google Chrome.app' --position 1 --no-restart >/dev/null 2>&1
-~/bin/dockutil --add '/Applications/Sublime Text 2.app' --position 2 --no-restart >/dev/null 2>&1
+~/bin/dockutil --add '/Applications/atom.app' --position 2 --no-restart >/dev/null 2>&1
 ~/bin/dockutil --add '/Applications/iTerm.app' --position 3 >/dev/null 2>&1
