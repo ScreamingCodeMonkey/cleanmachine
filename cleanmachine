@@ -180,6 +180,6 @@ for icon in Launchpad Contacts Calendar Notes Maps Messages FaceTime 'Photo Boot
 done
 
 # Add some sensible defaults
-dockutil --add '/Applications/Google Chrome.app' --position 1 --no-restart >/dev/null 2>&1
-dockutil --add '/Applications/Sublime Text 2.app' --position 2 --no-restart >/dev/null 2>&1
-dockutil --add '/Applications/iTerm.app' --position 3 >/dev/null 2>&1
+~/bin/dockutil --add '/Applications/Google Chrome.app' --position 1 --no-restart >/dev/null 2>&1
+~/bin/dockutil --add '/Applications/Sublime Text 2.app' --position 2 --no-restart >/dev/null 2>&1
+~/bin/dockutil --add '/Applications/iTerm.app' --position 3 >/dev/null 2>&1
