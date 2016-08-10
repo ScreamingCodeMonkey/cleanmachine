@@ -80,7 +80,7 @@ formula_installed brew-cask || brew install brew-cask
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-for cask in adium airfoil alfred twitterrific virtualbox charles dropbox firefox google-chrome iterm2 mamp opera onepassword sequel-pro skype spotify atom slack bettertouchtool rescuetime evernote the-unarchiver vlc; do
+for cask in adium airfoil alfred twitterrific virtualbox charles dropbox firefox google-chrome iterm2 mamp opera 1password sequel-pro skype spotify atom slack bettertouchtool rescuetime evernote the-unarchiver vlc; do
 	if ! cask_installed $cask; then
 		brew cask install $cask
 	fi
